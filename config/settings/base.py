@@ -110,3 +110,21 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "simple": {"format": "%(levelname)s: %(name)s - %(message)s"},
+        "verbose": {
+            "format": "%(asctime)s, %(levelname)s: %(name)s:%(lineno)d - %(message)s"
+        },
+    },
+    "handlers": {
+        "console-detail": {"class": "logging.StreamHandler", "formatter": "verbose"},
+        "console-simple": {"class": "logging.StreamHandler", "formatter": "simple"},
+    },
+    "loggers": {
+        "config": {"handlers": ["console-simple"], "level": "INFO", "propagate": False}
+    },
+}
