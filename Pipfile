@@ -8,6 +8,7 @@ django = "==4.0"
 djangorestframework = "*"
 celery = "*"
 python-decouple = "*"
+requests = "*"
 
 [dev-packages]
 
