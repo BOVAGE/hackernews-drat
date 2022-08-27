@@ -5,6 +5,7 @@
 __pycache__
 media
 upload
+db.sqlite3
 
 # Backup files # 
 *.bak 
