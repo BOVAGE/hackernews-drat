@@ -137,3 +137,7 @@ LOGGING = {
         "news": {"handlers": ["console-detail"], "level": "INFO", "propagate": False},
     },
 }
+
+# CELERY CONFIG
+CELERY_BROKER_URL = config("REDIS_URL")
+
