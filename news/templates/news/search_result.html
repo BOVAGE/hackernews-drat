@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}News - Home {% endblock title %}
 {% block content %}
-<h1 class="py-3">Items</h1>
+<h1 class="py-3">Search</h1>
 <div class="row">
     {% for item in page_obj %}
     <div class="col-md-6 mb-3">
@@ -20,15 +20,17 @@
             </div>
         </div>
     </div>
-    {% endfor %}
+    {% empty %}
+    <h3>Sorry, no news item match your query.</li>
+        {% endfor %}
 </div>
+{% if page_obj %}
 <div class="row">
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
-            <a href="{% if item_type %}?type={{item_type}}&{% endif %}page=1">&laquo; first</a>
-            <a
-                href="{% if item_type %}?type={{item_type}}&{% endif %}page={{ page_obj.previous_page_number }}">previous</a>
+            <a href="{% if query %}?q={{query}}&{% endif %}page=1">&laquo; first</a>
+            <a href="{% if query %}?q={{query}}&{% endif %}page={{ page_obj.previous_page_number }}">previous</a>
             {% endif %}
 
             <span class="current">
@@ -36,12 +38,12 @@
             </span>
 
             {% if page_obj.has_next %}
-            <a href="{% if item_type %}?type={{item_type}}&{% endif %}page={{ page_obj.next_page_number }}">next</a>
-            <a href="{% if item_type %}?type={{item_type}}&{% endif %}page={{ page_obj.paginator.num_pages }}">last
+            <a href="{% if query %}?q={{query}}&{% endif %}page={{ page_obj.next_page_number }}">next</a>
+            <a href="{% if query %}?q={{query}}&{% endif %}page={{ page_obj.paginator.num_pages }}">last
                 &raquo;</a>
             {% endif %}
         </span>
     </div>
 </div>
-
-{% endblock content %}`
+{% endif %}
+{% endblock content %}
