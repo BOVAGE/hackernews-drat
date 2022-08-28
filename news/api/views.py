@@ -18,25 +18,40 @@ class StoryListCreateView(generics.ListCreateAPIView):
     serializer_class = StorySerializer
     queryset = Story.objects.all()
 
+    def perform_create(self, serializer):
+        serializer.save(is_api_created=True)
+
 
 class CommentListCreateView(generics.ListCreateAPIView):
     serializer_class = CommentSerializer
     queryset = Comment.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save(is_api_created=True)
 
 
 class PollListCreateView(generics.ListCreateAPIView):
     serializer_class = PollSerializer
     queryset = Poll.objects.all()
 
+    def perform_create(self, serializer):
+        serializer.save(is_api_created=True)
+
 
 class JobListCreateView(generics.ListCreateAPIView):
     serializer_class = JobSerializer
     queryset = Poll.objects.all()
 
+    def perform_create(self, serializer):
+        serializer.save(is_api_created=True)
+
 
 class PollOptionListCreateView(generics.ListCreateAPIView):
     serializer_class = PollOptionSerializer
     queryset = PollOption.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save(is_api_created=True)
 
 
 StoryListCreateView = StoryListCreateView.as_view()
