@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}News - Home {% endblock title %}
+{% block content %}
+<h1>Hello world</h1>
+<p>{{ page_obj }}</p>
+<div class="row">
+    {% for item in page_obj %}
+    <div class="col-md-6 mb-3">
+        <div class="card border-primary">
+            <div class="card-header">
+                <h5 class="card-title"><a href="" class="text-decoration-none">{{item.title }}</a></h5>
+                <span class="text-muted">by: {{ item.by }} | type: {{ item.type }} | {{ item.time }}</span>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ item.text }}</p>
+            </div>
+            <div class="card-footer text-center">
+                <h6 class="font-weight-bold">Descendants: {{ item.descendants }}</h6>
+                <h6 class="font-weight-bold">Score: {{ item.score }}</h6>
+                <h6 class="font-weight-bold">Url:<a href="{{ item.url }}">{{ item.url }}</a></h6>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="row">
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="{% if item_type %}?type={{item_type}}&{% endif %}page=1">&laquo; first</a>
+            <a
+                href="{% if item_type %}?type={{item_type}}&{% endif %}page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="{% if item_type %}?type={{item_type}}&{% endif %}page={{ page_obj.next_page_number }}">next</a>
+            <a href="{% if item_type %}?type={{item_type}}&{% endif %}page={{ page_obj.paginator.num_pages }}">last
+                &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+{% endblock content %}`
