@@ -12,7 +12,7 @@ class Comment(BaseItem):
     parent_model = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     parent_id = models.PositiveIntegerField()
     parent_object = GenericForeignKey("parent_model", "parent_id")
-    text = models.CharField(max_length=1000, null=True, blank=True)
+    text = models.CharField(max_length=10000, null=True, blank=True)
 
     def __str__(self):
         return f"{self.hnid}: type - {self.type}"
@@ -25,6 +25,7 @@ class Story(BaseItem):
     descendants = models.IntegerField(blank=True, null=True)
     score = models.IntegerField(blank=True, null=True)
     title = models.CharField(max_length=100, blank=True, null=True)
+    text = models.CharField(max_length=10000, null=True, blank=True)
     url = models.URLField(blank=True, null=True)
     available_kids = GenericRelation(
         Comment, object_id_field="parent_id", content_type_field="parent_model"
@@ -41,7 +42,7 @@ class Job(BaseItem):
     """Job model"""
 
     type = models.CharField(default=BaseItem.ItemType.JOB, max_length=15)
-    text = models.CharField(max_length=1000)
+    text = models.CharField(max_length=10000)
     available_kids = GenericRelation(
         Comment, object_id_field="parent_id", content_type_field="parent_model"
     )
@@ -58,7 +59,7 @@ class Poll(BaseItem):
     descendants = models.IntegerField(blank=True, null=True)
     score = models.IntegerField(blank=True, null=True)
     title = models.CharField(max_length=100, null=True, blank=True)
-    text = models.CharField(max_length=1000, null=True, blank=True)
+    text = models.CharField(max_length=10000, null=True, blank=True)
     available_kids = GenericRelation(
         Comment, object_id_field="parent_id", content_type_field="parent_model"
     )
