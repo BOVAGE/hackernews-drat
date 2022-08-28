@@ -1,8 +1,8 @@
 import requests
 from typing import List, Dict
 import pprint
-from utils import convert_unix_to_datetime
-from exceptions import NotFound
+from hackernews.utils import convert_unix_to_datetime
+from hackernews.exceptions import NotFound
 
 
 class HackerNews:
@@ -148,7 +148,7 @@ if __name__ == "__main__":
     # print("next", next(iter(l)))
     # for i in l:
     #     print(i)
-    pprint.pprint(h.get_an_item(8863))
+    pprint.pprint(h.get_an_item(h.latest_item_id))
     # pprint.pprint(h.get_latest_item_id())
     # pprint.pprint(h.get_top_500_stories())
     # pprint.pprint(h.latest_item_id)
