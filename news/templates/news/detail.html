@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}News - Home {% endblock title %}
+{% block content %}
+<h1 class="py-3">Singe Item</h1>
+{% if item %}
+<div class="row">
+    <div class="col-12 mt-3">
+        <div class="card border-primary">
+            <div class="card-header">
+                <h5>{{ item.title }}</h5>
+                <p class="text-muted mb-0">
+                    by <span class="">{{ item.by }} | {{ item.time }}</span>
+                </p>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ item.text }}</p>
+            </div>
+            <div class="card-footer">
+                <h6 class="font-weight-bold text-decoration-underline">Comments</h6>
+                {% for comment in item.available_kids.all %}
+                <p class="mb-0">
+                    <span class="text-primary">{{ comment.by }} &middot;</span>&nbsp;&nbsp;{{ comment }}&middot
+                    <span class="text-muted">{{ comment.time }}</span>
+                </p>
+                {% empty %}
+                <p class="text-muted">There are no kids available in db yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<h3>Sorry😫, item does not exist in the db.</h3>
+{% endif %}
+<div class="row">
+
+</div>
+
+{% endblock content %}`

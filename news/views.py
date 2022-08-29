@@ -3,7 +3,7 @@ from .models import Story, Comment, Job, Poll, PollOption
 from django.core.paginator import Paginator
 from itertools import chain
 from django.db.models import Q
-
+from .utils import get_an_item_from_all_models
 
 # Create your views here.
 def home(request):
@@ -51,3 +51,8 @@ def search(request):
         page_obj = paginator.get_page(page_number)
     context = {"page_obj": page_obj, "query": query}
     return render(request, "news/search_result.html", context)
+
+
+def detail(request, hnid):
+    item = get_an_item_from_all_models(hnid)
+    return render(request, "news/detail.html", {"item": item})

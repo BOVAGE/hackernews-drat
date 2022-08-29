@@ -7,7 +7,8 @@
     <div class="col-md-6 mb-3">
         <div class="card border-primary">
             <div class="card-header">
-                <h5 class="card-title"><a href="" class="text-decoration-none">{{item.title }}</a></h5>
+                <h5 class="card-title"><a href="{% url 'news:detail' item.hnid %}"
+                        class="text-decoration-none">{{item.title }}</a></h5>
                 <span class="text-muted">by: {{ item.by }} | type: {{ item.type }} | {{ item.time }}</span>
             </div>
             <div class="card-body">
