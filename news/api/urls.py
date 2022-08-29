@@ -6,6 +6,11 @@ from .views import (
     PollListCreateView,
     PollOptionListCreateView,
     StoryListCreateView,
+    StoryDetailView,
+    CommentDetailView,
+    JobDetailView,
+    PollDetailView,
+    PollOptionDetailView,
 )
 
 api_url_patterns = [
@@ -14,4 +19,9 @@ api_url_patterns = [
     path("jobs", JobListCreateView, name="job"),
     path("polls", PollListCreateView, name="poll"),
     path("pollopts", PollOptionListCreateView, name="pollopt"),
+    path("stories/<int:hnid>", StoryDetailView, name="story-detail"),
+    path("comments/<int:hnid>", CommentDetailView, name="comment-detail"),
+    path("jobs/<int:hnid>", JobDetailView, name="job-detail"),
+    path("polls/<int:hnid>", PollDetailView, name="poll-detail"),
+    path("pollopts/<int:hnid>", PollOptionDetailView, name="pollopt-detail"),
 ]
