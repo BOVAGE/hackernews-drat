@@ -58,3 +58,43 @@ celery -A config worker -l INFO
 ```
 celery -A core worker -B -l INFO
 ```
+7. Start the development server by running and access it at http://127.0.0.1:8000/
+```
+python manage.py runserver
+```
+### http://127.0.0.1:8000/
+The home list all items - story, comment, job, poll, option
+You can filter specific item type by clicking the item type in the nav bar
+A search box that allow filtering by all item by  their text field.
+
+### http://127.0.0.1:8000/<hnid>
+The detail page for item whose id from hacker news is passed in the url. Show their kids if they have saved to or available in the db.
+
+### http://127.0.0.1:8000/graphql
+Displays GraphiQL API browser for running the graphql queries
+
+The below urls are RESTful API endpoints to create and list item. They support 
+- GET
+- POST
+### http://127.0.0.1:8000/api/v1/stories
+### http://127.0.0.1:8000/api/v1/comments
+### http://127.0.0.1:8000/api/v1/jobs
+### http://127.0.0.1:8000/api/v1/polls
+### http://127.0.0.1:8000/api/v1/pollopts
+
+The below urls are RESTful API endpoints to create and list item. They support 
+- GET
+- PATCH
+- DELETE
+- PUT
+### http://127.0.0.1:8000/api/v1/stories/<hnid>
+### http://127.0.0.1:8000/api/v1/comments/<hnid>
+### http://127.0.0.1:8000/api/v1/jobs/<hnid>
+### http://127.0.0.1:8000/api/v1/polls/<hnid>
+### http://127.0.0.1:8000/api/v1/pollopts/<hnid>
+
+However, you can't delete items saved from hacker news api. 
+Only items created via the api can be deleted.
+
+You can access the swagger API documentation with UI at http://127.0.0.1:8000/doc
+You can access the Redoc API documentation with UI at http://127.0.0.1:8000/redoc
