@@ -123,5 +123,27 @@ def does_item_exists_in_db(model, hnid: int):
     return model.objects.filter(hnid=hnid).exists()
 
 
+def get_an_item_from_all_models(hnid):
+    """get a single item from story, comment,
+    job, poll, option models
+    """
+    item = None
+    item = Story.objects.filter(hnid=hnid)
+    if item:
+        return item[0]
+    item = Comment.objects.filter(hnid=hnid)
+    if item:
+        return item[0]
+    item = Job.objects.filter(hnid=hnid)
+    if item:
+        return item[0]
+    item = Poll.objects.filter(hnid=hnid)
+    if item:
+        return item[0]
+    item = PollOption.objects.filter.get(hnid=hnid)
+    if item:
+        return item[0]
+
+
 if __name__ == "__main__":
     populate_100_items()
