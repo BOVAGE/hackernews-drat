@@ -64,6 +64,8 @@ def save_item_to_db(item):
     data_to_save = format_item_for_db(item)
     item_type = data_to_save.pop("type")
     model = model_to_use(item_type)
+    if does_item_exists_in_db(model, data_to_save["hnid"]):
+        return model.objects.get(data_to_save["hnid"])
     print(f"model === {model} for {item_type}")
     parent_obj = None
     if "parent" in item:
@@ -107,6 +109,18 @@ def format_item_for_db(item):
     if "parent" in format_item:
         format_item.pop("parent")
     return format_item
+
+
+def does_item_exists_in_db(model, hnid: int):
+    """Check if the item passed already exist in the
+    database based on the unique hind
+    Args:
+        model: model class to use
+        hnid (dict): pass in the formatted Item data
+    Return:
+        item_exist (bool):  True / False
+    """
+    return model.objects.filter(hnid=hnid).exists()
 
 
 if __name__ == "__main__":
