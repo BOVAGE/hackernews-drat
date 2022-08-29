@@ -9,6 +9,7 @@ djangorestframework = "*"
 celery = "*"
 python-decouple = "*"
 requests = "*"
+graphene-django = "*"
 
 [dev-packages]
 
