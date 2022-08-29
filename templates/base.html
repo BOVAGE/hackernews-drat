@@ -30,6 +30,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'news:search' %}">Search</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'news:home' %}?type=story">Story</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'news:home' %}?type=comment">Comment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'news:home' %}?type=job">Job</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'news:home' %}?type=poll">Poll</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'news:home' %}?type=pollopt">Poll Option</a>
+                        </li>
                     </ul>
                 </div>
             </div>
