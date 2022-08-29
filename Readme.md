@@ -27,6 +27,7 @@ If you have [`pipenv`](https://pipenv.pypa.io/en/latest/) installed, you can sim
 ```
 pipenv install
 ```
+**NB:** Add value to the env var in the .env.sample and rename it to .env
 4. Activate the virtual environment, and run this command in the terminal to seed the db with 100 latest items from hackernews
 ```
 python manage.py populate_db
