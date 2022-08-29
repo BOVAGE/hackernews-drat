@@ -36,6 +36,7 @@ class Story(BaseItem):
 
     class Meta:
         verbose_name_plural = "Stories"
+        ordering = ["-time"]  # had to add this due to overriden of the meta class
 
 
 class Job(BaseItem):

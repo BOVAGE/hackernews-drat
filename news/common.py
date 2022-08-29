@@ -27,3 +27,4 @@ class BaseItem(models.Model):
 
     class Meta:
         abstract = True
+        ordering = ["-time"]
