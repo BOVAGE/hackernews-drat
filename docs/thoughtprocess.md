@@ -59,3 +59,12 @@ The data obtained from these views are displayed using their respective html tem
 
 #### Periodic Task Setup
 Celery was used for scheduling.
+
+### 4. API DEVELOPMENT
+Just to mention, [GraphQL](https://graphql.org/) API architectural style is the most suitable style to use considering the model. Using GraphQL helps avoid over-fetching and under-fetching of data. This is really useful here. because not all the fields of each item will be needed for some API call. For instance, the kids field is kinda too large at times which may delay response from the api.
+
+Since the API architectural style wasn't specified, I added support for the REST and GraphQL
+
+**NB:** List API endpoints (i.e collections) are paginated.
+
+### 5. Project Documentation and API DOCUMENTATION
