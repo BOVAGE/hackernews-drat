@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from .models import Story, Comment, Job, Poll, PollOption
+from ..models import Story, Comment, Job, Poll, PollOption
 from django.core.paginator import Paginator
 from itertools import chain
 from django.db.models import Q
-from .utils import get_an_item_from_all_models
+from ..utils import get_an_item_from_all_models
 
 # Create your views here.
 def home(request):

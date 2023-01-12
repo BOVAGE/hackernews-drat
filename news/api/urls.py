@@ -13,18 +13,15 @@ from .views import (
     PollOptionDetailView,
 )
 
-api_prefix = "api/v1/"
-api_url_patterns = [
-    path(f"{api_prefix}stories", StoryListCreateView, name="story"),
-    path(f"{api_prefix}comments", CommentListCreateView, name="comment"),
-    path(f"{api_prefix}jobs", JobListCreateView, name="job"),
-    path(f"{api_prefix}polls", PollListCreateView, name="poll"),
-    path(f"{api_prefix}pollopts", PollOptionListCreateView, name="pollopt"),
-    path(f"{api_prefix}stories/<int:hnid>", StoryDetailView, name="story-detail"),
-    path(f"{api_prefix}comments/<int:hnid>", CommentDetailView, name="comment-detail"),
-    path(f"{api_prefix}jobs/<int:hnid>", JobDetailView, name="job-detail"),
-    path(f"{api_prefix}polls/<int:hnid>", PollDetailView, name="poll-detail"),
-    path(
-        f"{api_prefix}pollopts/<int:hnid>", PollOptionDetailView, name="pollopt-detail"
-    ),
+urlpatterns = [
+    path("stories", StoryListCreateView, name="story"),
+    path("comments", CommentListCreateView, name="comment"),
+    path("jobs", JobListCreateView, name="job"),
+    path("polls", PollListCreateView, name="poll"),
+    path("pollopts", PollOptionListCreateView, name="pollopt"),
+    path("stories/<int:hnid>", StoryDetailView, name="story-detail"),
+    path("comments/<int:hnid>", CommentDetailView, name="comment-detail"),
+    path("jobs/<int:hnid>", JobDetailView, name="job-detail"),
+    path("polls/<int:hnid>", PollDetailView, name="poll-detail"),
+    path("pollopts/<int:hnid>", PollOptionDetailView, name="pollopt-detail"),
 ]
